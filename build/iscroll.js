@@ -1035,7 +1035,6 @@ IScroll.prototype = {
 			return;
 		}
 
-		e.preventDefault();
 		e.stopPropagation();
 
 		var wheelDeltaX, wheelDeltaY,
@@ -1067,13 +1066,13 @@ IScroll.prototype = {
 			return;
 		}
 
+        //prevent default just when i'm scrolling
+        if(wheelDeltaY === 0) {
+            e.preventDefault();
+        }
+
 		wheelDeltaX *= this.options.invertWheelDirection;
 		wheelDeltaY *= this.options.invertWheelDirection;
-
-		if ( !this.hasVerticalScroll ) {
-			wheelDeltaX = wheelDeltaY;
-			wheelDeltaY = 0;
-		}
 
 		if ( this.options.snap ) {
 			newX = this.currentPage.pageX;
