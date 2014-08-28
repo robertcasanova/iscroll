@@ -53,7 +53,7 @@
 		}
 
         //prevent default just when i'm scrolling
-        if(wheelDeltaY == 0) {
+        if(wheelDeltaY === 0) {
             e.preventDefault();
         }
 
