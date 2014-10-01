@@ -46,7 +46,7 @@ var utils = (function () {
 	};
 
 	me.prefixPointerEvent = function (pointerEvent) {
-		return window.MSPointerEvent ? 
+		return window.MSPointerEvent ?
 			'MSPointer' + pointerEvent.charAt(9).toUpperCase() + pointerEvent.substr(10):
 			pointerEvent;
 	};
@@ -228,7 +228,7 @@ var utils = (function () {
 		var target = e.target,
 			ev;
 
-		if ( !(/(SELECT|INPUT|TEXTAREA)/i).test(target.tagName) ) {
+		// if ( !(/(SELECT|INPUT|TEXTAREA)/i).test(target.tagName) ) {
 			ev = document.createEvent('MouseEvents');
 			ev.initMouseEvent('click', true, true, e.view, 1,
 				target.screenX, target.screenY, target.clientX, target.clientY,
@@ -237,7 +237,7 @@ var utils = (function () {
 
 			ev._constructed = true;
 			target.dispatchEvent(ev);
-		}
+		// }
 	};
 
 	return me;
